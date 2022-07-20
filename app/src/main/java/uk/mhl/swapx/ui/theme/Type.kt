@@ -9,7 +9,14 @@ import androidx.compose.ui.unit.sp
 import uk.mhl.swapx.R
 
 val JetBrainsMono = FontFamily(
-    Font(R.font.jet_brains_mono_bold, weight = FontWeight.Bold)
+    Font(R.font.jet_brains_mono_bold, weight = FontWeight.Bold),
+    Font(R.font.jet_brains_mono_extra_bold, weight = FontWeight.ExtraBold),
+    Font(R.font.jet_brains_mono_extra_light, weight = FontWeight.ExtraLight),
+    Font(R.font.jet_brains_mono_light, weight = FontWeight.Light),
+    Font(R.font.jet_brains_mono_medium, weight = FontWeight.Medium),
+    Font(R.font.jet_brains_mono_regular, weight = FontWeight.Normal),
+    Font(R.font.jet_brains_mono_semi_bold, weight = FontWeight.SemiBold),
+    Font(R.font.jet_brains_mono_thin, weight = FontWeight.Thin)
 )
 
 val AppTypography = Typography(

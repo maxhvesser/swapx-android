@@ -1,7 +1,7 @@
 package uk.mhl.swapx.ui.navigation
 
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material.Scaffold
+import com.google.accompanist.insets.ui.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable

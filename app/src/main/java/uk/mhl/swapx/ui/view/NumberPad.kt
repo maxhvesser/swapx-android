@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.mhl.swapx.ui.theme.SwapTheme
 import uk.mhl.swapx.R
+import uk.mhl.swapx.ui.util.NavigationBarSpacer
 
 // region Key Types
 
@@ -132,7 +133,12 @@ fun NumberPad(
             columns = GridCells.Fixed(3),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
-            contentPadding = PaddingValues(12.dp),
+            contentPadding = PaddingValues(
+                top = 16.dp,
+                start = 12.dp,
+                end = 12.dp,
+                bottom = 12.dp
+            ),
             userScrollEnabled = false
         ) {
             items(Key.values()) { key ->
@@ -148,6 +154,10 @@ fun NumberPad(
                         onKeyClicked = onKeyClicked
                     )
                 }
+            }
+
+            item {
+                NavigationBarSpacer()
             }
         }
     }
