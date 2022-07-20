@@ -16,7 +16,8 @@ fun Exchange() {
     ) {
         Text(
             text = "JetBrains Mono 01234567890",
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onBackground
         )
     }
 }
