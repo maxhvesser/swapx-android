@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.mhl.swapx.R
+import uk.mhl.swapx.data.model.Currency
 import uk.mhl.swapx.ui.theme.SwapTheme
 
 // region Base row
@@ -75,16 +76,14 @@ private fun BaseCurrencyRow(
 
 @Composable
 fun CurrencyRow(
-    currencyIcon: Painter,
-    currency: String,
-    currencyCode: String,
+    currency: Currency,
     selected: Boolean,
     onRowClicked: () -> Unit
 ) {
     BaseCurrencyRow(
-        icon = currencyIcon,
-        currency = currency,
-        currencyCode = currencyCode,
+        icon = painterResource(currency.asset),
+        currency = currency.fullName,
+        currencyCode = currency.name,
         selected = selected,
         onRowClicked = onRowClicked
     )
@@ -99,9 +98,7 @@ fun CurrencyRow(
 fun Preview_CurrencyRow() {
     SwapTheme {
         CurrencyRow(
-            currencyIcon = painterResource(R.drawable.ic_cad),
-            currency = "Canadian Dollars",
-            currencyCode = "CAD",
+            currency = Currency.CAD,
             selected = true,
             onRowClicked = { }
         )

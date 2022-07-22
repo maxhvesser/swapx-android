@@ -62,9 +62,7 @@ private fun CurrencyList() {
     ) {
         items(currencies) { currency ->
             CurrencyRow(
-                currency = currency.fullName,
-                currencyCode = currency.name,
-                currencyIcon = painterResource(currency.asset),
+                currency = currency,
                 selected = currency == Currency.CAD,
                 onRowClicked = { }
             )
