@@ -16,8 +16,12 @@ import uk.mhl.swapx.R
 
 // region Entry
 @Composable
-fun Exchange() {
-    Content()
+fun Exchange(
+    openCurrencySelection: () -> Unit
+) {
+    Content(
+        openCurrencySelection = openCurrencySelection
+    )
 }
 
 // endregion
@@ -25,21 +29,23 @@ fun Exchange() {
 // region Content
 
 @Composable
-private fun Content() {
+private fun Content(
+    openCurrencySelection: () -> Unit
+) {
     Column {
         Spacer(Modifier.weight(1f))
         CurrencyCard(
             amount = "0.00",
             currency = "Canadian Dollars",
             currencyCode = "CAD",
-            onCardClicked = { }
+            onCardClicked = openCurrencySelection
         )
         SwapButton()
         CurrencyCard(
             amount = "0.00",
             currency = "Norwegian Kroners",
             currencyCode = "NOK",
-            onCardClicked = { }
+            onCardClicked = openCurrencySelection
         )
         Spacer(Modifier.weight(1f))
         NumberPad(
@@ -83,7 +89,9 @@ private fun SwapButton() {
 @Composable
 fun Preview_Content() {
     SwapTheme {
-        Content()
+        Content(
+            openCurrencySelection = { }
+        )
     }
 }
 

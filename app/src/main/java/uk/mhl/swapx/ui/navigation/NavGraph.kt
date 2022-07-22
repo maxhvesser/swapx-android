@@ -5,6 +5,7 @@ import com.google.accompanist.insets.ui.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import uk.mhl.swapx.ui.currency_selection.CurrencySelection
 import uk.mhl.swapx.ui.exchange.Exchange
 import uk.mhl.swapx.ui.rememberSwapAppState
 
@@ -22,7 +23,13 @@ fun NavGraph() {
             startDestination = Destinations.Exchange.Route
         ) {
             composable(Destinations.Exchange.Route) {
-                Exchange()
+                Exchange(
+                    openCurrencySelection = appState.navigator.openCurrencySelection
+                )
+            }
+
+            composable(Destinations.CurrencySelection.Route) {
+                CurrencySelection()
             }
         }
     }
