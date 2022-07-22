@@ -36,14 +36,14 @@ private fun Content(
         Spacer(Modifier.weight(1f))
         CurrencyCard(
             amount = "0.00",
-            currency = "Canadian Dollars",
+            currency = "Canadian Dollar",
             currencyCode = "CAD",
             onCardClicked = openCurrencySelection
         )
         SwapButton()
         CurrencyCard(
             amount = "0.00",
-            currency = "Norwegian Kroners",
+            currency = "Norwegian Krone",
             currencyCode = "NOK",
             onCardClicked = openCurrencySelection
         )
