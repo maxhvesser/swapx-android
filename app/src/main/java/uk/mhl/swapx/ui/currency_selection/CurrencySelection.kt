@@ -1,4 +1,4 @@
-package uk.mhl.swapx.ui.CurrencySelection
+package uk.mhl.swapx.ui.currency_selection
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -14,7 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uk.mhl.swapx.R
-import uk.mhl.swapx.data.local.CurrencyListProvider
+import uk.mhl.swapx.data.model.Currency
 import uk.mhl.swapx.ui.theme.SwapTheme
 import uk.mhl.swapx.ui.view.CurrencyRow
 
@@ -55,17 +55,17 @@ private fun Content() {
 
 @Composable
 private fun CurrencyList() {
-    val currencies = CurrencyListProvider().currencies()
+    val currencies = Currency.values()
     
     LazyColumn(
         contentPadding = PaddingValues(12.dp)
     ) {
         items(currencies) { currency ->
             CurrencyRow(
-                currency = currency.name,
-                currencyCode = currency.code,
-                currencyIcon = painterResource(currency.iconAsset),
-                selected = currency.code == "CAD",
+                currency = currency.fullName,
+                currencyCode = currency.name,
+                currencyIcon = painterResource(currency.asset),
+                selected = currency == Currency.CAD,
                 onRowClicked = { }
             )
         }
