@@ -10,23 +10,26 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import uk.mhl.swapx.ui.navigation.Navigator
 
 @Composable
 fun rememberSwapAppState(
     scaffoldState: ScaffoldState = rememberScaffoldState(),
     navController: NavHostController = rememberNavController(),
+    navigator: Navigator = remember(navController) { Navigator(navController) },
     resources: Resources = resources(),
     coroutineScope: CoroutineScope = rememberCoroutineScope()
 ) = remember(scaffoldState) {
-    SwapAppState(scaffoldState, navController, resources, coroutineScope)
+    SwapAppState(scaffoldState, navController, navigator, resources, coroutineScope)
 }
 
 @Stable
 class SwapAppState(
     val scaffoldState: ScaffoldState,
     val navController: NavHostController,
+    val navigator: Navigator,
     val resources: Resources,
-    val coroutineScope: CoroutineScope
+    coroutineScope: CoroutineScope
 ) {
     init {
         coroutineScope.launch {
