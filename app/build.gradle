@@ -86,6 +86,10 @@ dependencies {
     implementation Deps.Retrofit.retrofit
     implementation Deps.Retrofit.gson
 
+    // Room
+    implementation Deps.Room.runtime
+    annotationProcessor Deps.Room.compiler
+
     // Test suite
     testImplementation Deps.Junit.junit
     androidTestImplementation Deps.Junit.ext

@@ -17,6 +17,7 @@ object Versions {
     const val material3 = "1.0.0-alpha14"
     const val navigation = "2.5.0-alpha04"
     const val retrofit = "2.9.0"
+    const val room = "2.4.2"
 }
 
 object Deps {
@@ -38,10 +39,6 @@ object Deps {
         }
     }
 
-    object Kotlin {
-        const val ktx = "androidx.core:core-ktx:${Versions.coreKtx}"
-    }
-
     object Hilt {
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val compiler = "com.google.dagger:hilt-compiler:${Versions.hilt}"
@@ -52,6 +49,10 @@ object Deps {
         const val junit = "junit:junit:${Versions.junit}"
         const val ext = "androidx.test.ext:junit:${Versions.junitExt}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    }
+
+    object Kotlin {
+        const val ktx = "androidx.core:core-ktx:${Versions.coreKtx}"
     }
 
     object Lifecycle {
@@ -67,6 +68,11 @@ object Deps {
     object Retrofit {
         const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    }
+
+    object Room {
+        const val runtime = "androidx.room:room-runtime:${Versions.room}"
+        const val compiler = "androidx.room:room-compiler:${Versions.room}"
     }
 }
 
