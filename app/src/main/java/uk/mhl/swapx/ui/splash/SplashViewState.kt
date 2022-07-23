@@ -1,0 +1,1 @@
+package uk.mhl.swapx.ui.splash
