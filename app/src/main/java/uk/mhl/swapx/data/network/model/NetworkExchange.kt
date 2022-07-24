@@ -1,6 +1,6 @@
 package uk.mhl.swapx.data.network.model
 
-data class NetworkExchangeLatest(
+data class NetworkExchange(
     val base: String,
     val date: String,
     val rates: List<NetworkRate>

@@ -1,2 +1,6 @@
-package uk.mhl.swapx.data.local.model
+package uk.mhl.swapx.data.database.model
 
+data class RateEntity(
+    val currencyCode: String,
+    val value: Double
+)
