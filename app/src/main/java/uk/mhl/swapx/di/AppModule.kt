@@ -10,7 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import uk.mhl.swapx.data.remote.ExchangeApi
+import uk.mhl.swapx.data.network.ExchangeApi
 import javax.inject.Singleton
 
 @Module

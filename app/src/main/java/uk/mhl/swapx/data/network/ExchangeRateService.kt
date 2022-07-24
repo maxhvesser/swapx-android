@@ -1,9 +1,9 @@
-package uk.mhl.swapx.data.remote
+package uk.mhl.swapx.data.network
 
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
-import uk.mhl.swapx.data.model.ExchangeLatest
+import uk.mhl.swapx.data.network.model.NetworkExchangeLatest
 
 interface ExchangeRateService {
 
@@ -12,7 +12,7 @@ interface ExchangeRateService {
     @GET(ExchangeApi.Latest)
     suspend fun getLatestForBase(
         @Query(ExchangeApi.Params.Base) base: String
-    ) : Response<ExchangeLatest>
+    ) : Response<NetworkExchangeLatest>
 
     // endregion
 

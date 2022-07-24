@@ -1,4 +1,4 @@
-package uk.mhl.swapx.data.remote
+package uk.mhl.swapx.data.network
 
 object ExchangeApi {
     const val BaseUrl: String = "api.exchangerate.host"
