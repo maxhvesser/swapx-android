@@ -11,7 +11,8 @@ interface ExchangeService {
 
     @GET(ExchangeApi.Latest)
     suspend fun getLatestForBase(
-        @Query(ExchangeApi.Params.Base) base: String
+        @Query(ExchangeApi.Param.Source.Key) source: String,
+        @Query(ExchangeApi.Param.Base.Key) base: String
     ) : Response<NetworkExchange>
 
     // endregion

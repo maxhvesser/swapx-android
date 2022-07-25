@@ -3,28 +3,37 @@ package uk.mhl.swapx.ui.navigation
 import androidx.compose.material3.MaterialTheme
 import com.google.accompanist.insets.ui.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import uk.mhl.swapx.ui.currency_selection.CurrencySelection
 import uk.mhl.swapx.ui.exchange.Exchange
 import uk.mhl.swapx.ui.rememberSwapAppState
+import uk.mhl.swapx.ui.splash.Splash
 
 @Composable
 fun NavGraph() {
-    val appState = rememberSwapAppState()
+    val state = rememberSwapAppState()
 
     Scaffold(
         backgroundColor = MaterialTheme.colorScheme.background
-    ) {
-        val contentPadding = it
+    ) { padding ->
+        val contentPadding = padding
 
         NavHost(
-            navController = appState.navController,
-            startDestination = Destinations.Exchange.Route
+            navController = state.navController,
+            startDestination = Destinations.Splash.Route
         ) {
+            composable(Destinations.Splash.Route) { backStack ->
+                Splash(
+                    viewModel = hiltViewModel(backStack),
+                    openExchange = state.navigator.openExchange
+                )
+            }
+
             composable(Destinations.Exchange.Route) {
                 Exchange(
-                    openCurrencySelection = appState.navigator.openCurrencySelection
+                    openCurrencySelection = state.navigator.openCurrencySelection
                 )
             }
 

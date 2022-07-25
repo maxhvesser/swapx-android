@@ -11,6 +11,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uk.mhl.swapx.data.network.ExchangeApi
+import uk.mhl.swapx.data.network.ExchangeService
 import javax.inject.Singleton
 
 @Module
@@ -41,6 +42,11 @@ object AppModule {
         .baseUrl(baseUrl)
         .client(okHttpClient)
         .build()
+
+    @Singleton
+    @Provides
+    fun provideExchangeService(retrofit: Retrofit): ExchangeService = retrofit
+        .create(ExchangeService::class.java)
 
     // endregion
 

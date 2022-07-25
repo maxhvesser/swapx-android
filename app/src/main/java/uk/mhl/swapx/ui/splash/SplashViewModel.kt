@@ -24,13 +24,13 @@ class SplashViewModel @Inject constructor(
     private val _loading = MutableStateFlow<Boolean>(true)
 
     val state = _loading
-        .map {
-            SplashViewState(it)
+        .map { loading ->
+            SplashViewState(loading)
         }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
-            initialValue = true
+            initialValue = SplashViewState()
         )
 
     // endregion
@@ -39,6 +39,7 @@ class SplashViewModel @Inject constructor(
 
     init {
         // Download currencies
+        downloadExchangeLatest()
     }
 
     // endregion
@@ -57,35 +58,10 @@ class SplashViewModel @Inject constructor(
 
             val responses = tasks.awaitAll()
 
-            // Update database with values
-            val t = responses
+            _loading.tryEmit(false)
         }
     }
 
     // endregion
 
 }
-
-// viewModelScope.launch {
-//    withContext(dispatcherProvider.heavyTasks) {
-//        val multipleIds = listOf(1, 2, 3, 4, 5, ..)
-//        val content = arrayListOf<CustomObj>()
-//
-//        val runningTasks = multipleIds.map { id ->
-//                async { // this will allow us to run multiple tasks in parallel
-//                    val apiResponse = api.get(id)
-//                    id to apiResponse // associate id and response for later
-//                }
-//        }
-//
-//        val responses = runningTasks.awaitAll()
-//
-//        responses.forEach { (id, response) ->
-//            if (response.isSuccessful()) {
-//                content.find { it.id == id }.enable = true
-//            }
-//        }
-//
-//        liveData.postValue(content)
-//    }
-//}
