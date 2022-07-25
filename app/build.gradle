@@ -87,8 +87,9 @@ dependencies {
     implementation Deps.Retrofit.gson
 
     // Room
+    kapt Deps.Room.compiler
+    implementation Deps.Room.ktx
     implementation Deps.Room.runtime
-    annotationProcessor Deps.Room.compiler
 
     // Test suite
     testImplementation Deps.Junit.junit

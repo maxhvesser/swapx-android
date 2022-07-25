@@ -38,26 +38,25 @@ class SplashViewModel @Inject constructor(
     // region Initialisation
 
     init {
-        downloadExchangeLatest()
+        getExchangeRates()
     }
 
     // endregion
 
     // region Get currencies
 
-    private fun downloadExchangeLatest() {
+    private fun getExchangeRates() {
         viewModelScope.launch {
             val currencies = Currency.values()
 
-            val tasks = currencies.map { currency ->
+            val exchangeRatesTask = currencies.map { currency ->
                 async {
                     exchangeRepository.getLatestForBase(currency.name)
                 }
             }
 
-            val responses = tasks.awaitAll()
-
-            // Update the local database with these rates
+            val exchangeRatesResult = exchangeRatesTask.awaitAll()
+            exchangeRepository.storeExchangeRates(exchangeRatesResult)
 
             _loading.tryEmit(false)
         }

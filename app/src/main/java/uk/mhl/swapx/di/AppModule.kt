@@ -1,6 +1,8 @@
 package uk.mhl.swapx.di
 
 import android.content.Context
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -10,6 +12,8 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import uk.mhl.swapx.data.database.ExchangeDatabase
+import uk.mhl.swapx.data.database.dao.ExchangeDao
 import uk.mhl.swapx.data.network.ExchangeApi
 import uk.mhl.swapx.data.network.ExchangeService
 import javax.inject.Singleton
@@ -47,6 +51,24 @@ object AppModule {
     @Provides
     fun provideExchangeService(retrofit: Retrofit): ExchangeService = retrofit
         .create(ExchangeService::class.java)
+
+    // endregion
+
+    // region Database
+
+    @Singleton
+    @Provides
+    fun provideExchangeDatabase(@ApplicationContext context: Context): ExchangeDatabase = Room
+        .databaseBuilder(
+            context,
+            ExchangeDatabase::class.java,
+            "exchange-database"
+        )
+        .build()
+
+    @Singleton
+    @Provides
+    fun provideExchangeDao(database: ExchangeDatabase): ExchangeDao = database.exchangeDao()
 
     // endregion
 
