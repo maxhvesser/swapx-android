@@ -7,6 +7,7 @@ object Versions {
     const val composeCompiler = "1.2.0"
     const val coreKtx = "1.9.0-alpha01"
     const val espresso = "3.4.0"
+    const val flipper = "0.154.0"
     const val gradlePlugin = "7.1.2"
     const val hilt = "2.42"
     const val hiltNavigation = "1.0.0"
@@ -18,6 +19,7 @@ object Versions {
     const val navigation = "2.5.0-alpha04"
     const val retrofit = "2.9.0"
     const val room = "2.4.2"
+    const val soLoader = "0.10.4"
 }
 
 object Deps {
@@ -37,6 +39,11 @@ object Deps {
             const val tooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
             const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
         }
+    }
+
+    object Flipper {
+        const val flipper = "com.facebook.flipper:flipper:${Versions.flipper}"
+        const val soLoader = "com.facebook.soloader:soloader:${Versions.soLoader}"
     }
 
     object Hilt {

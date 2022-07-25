@@ -63,6 +63,10 @@ dependencies {
     // Compose UI
     implementation Deps.Compose.Ui.ui
 
+    // Flipper
+    debugImplementation Deps.Flipper.flipper
+    debugImplementation Deps.Flipper.soLoader
+
     // Hilt
     implementation Deps.Hilt.hilt
     kapt Deps.Hilt.compiler
