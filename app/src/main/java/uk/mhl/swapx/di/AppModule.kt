@@ -2,7 +2,6 @@ package uk.mhl.swapx.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

@@ -9,10 +9,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import uk.mhl.swapx.R
 import uk.mhl.swapx.ui.theme.SwapTheme
 import uk.mhl.swapx.ui.view.CurrencyCard
 import uk.mhl.swapx.ui.view.NumberPad
-import uk.mhl.swapx.R
 
 // region Entry
 @Composable
