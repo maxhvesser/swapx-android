@@ -38,7 +38,6 @@ class SplashViewModel @Inject constructor(
     // region Initialisation
 
     init {
-        // Download currencies
         downloadExchangeLatest()
     }
 
@@ -57,6 +56,8 @@ class SplashViewModel @Inject constructor(
             }
 
             val responses = tasks.awaitAll()
+
+            // Update the local database with these rates
 
             _loading.tryEmit(false)
         }
