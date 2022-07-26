@@ -38,7 +38,9 @@ fun NavGraph() {
             }
 
             composable(Destinations.CurrencySelection.Route) {
-                CurrencySelection()
+                CurrencySelection(
+                    navigateUp = state.navigator.navigateUp
+                )
             }
         }
     }

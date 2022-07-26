@@ -16,8 +16,12 @@ import uk.mhl.swapx.ui.view.SwapAppBar
 // region Entry
 
 @Composable
-fun CurrencySelection() {
-    Content()
+fun CurrencySelection(
+    navigateUp: () -> Unit
+) {
+    Content(
+        navigateUp = navigateUp
+    )
 }
 
 // endregion
@@ -25,14 +29,14 @@ fun CurrencySelection() {
 // region Content
 
 @Composable
-private fun Content() {
+private fun Content(
+    navigateUp: () -> Unit
+) {
     Column {
         SwapAppBar(
             title = "Currency",
             navigationIcon = {
-                BackArrowNavigation(
-                    onClick = { }
-                )
+                BackArrowNavigation(navigateUp)
             }
         )
         CurrencyList()
@@ -64,7 +68,9 @@ private fun CurrencyList() {
 @Composable
 fun Preview_Content() {
     SwapTheme {
-        Content()
+        Content(
+            navigateUp = { }
+        )
     }
 }
 
