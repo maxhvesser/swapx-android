@@ -22,4 +22,11 @@ interface ExchangeDao {
 
     // endregion
 
+    // region Delete
+
+    @Query("DELETE FROM exchangeEntity")
+    suspend fun clearTable()
+
+    // endregion
+
 }

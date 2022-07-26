@@ -28,6 +28,7 @@ class ExchangeRepository @Inject constructor(
     // region Database
 
     suspend fun storeExchangeRates(rates: List<ExchangeEntity>) {
+        exchangeDao.clearTable()
         exchangeDao.insertAll(rates)
     }
 
