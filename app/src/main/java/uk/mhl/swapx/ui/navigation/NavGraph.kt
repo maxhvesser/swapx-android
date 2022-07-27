@@ -26,18 +26,19 @@ fun NavGraph() {
         ) {
             composable(Destinations.Splash.Route) { backStack ->
                 Splash(
-                    viewModel = hiltViewModel(backStack),
+                    model = hiltViewModel(backStack),
                     openExchange = state.navigator.openExchange
                 )
             }
 
-            composable(Destinations.Exchange.Route) {
+            composable(Destinations.Exchange.Route) { backStack ->
                 Exchange(
+                    model = hiltViewModel(backStack),
                     openCurrencySelection = state.navigator.openCurrencySelection
                 )
             }
 
-            composable(Destinations.CurrencySelection.Route) {
+            composable(Destinations.CurrencySelection.Route) { backStack ->
                 CurrencySelection(
                     navigateUp = state.navigator.navigateUp
                 )

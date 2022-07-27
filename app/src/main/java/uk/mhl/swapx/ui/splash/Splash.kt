@@ -17,10 +17,10 @@ import uk.mhl.swapx.ui.theme.SwapTheme
 
 @Composable
 fun Splash(
-    viewModel: SplashViewModel,
+    model: SplashViewModel,
     openExchange: () -> Unit
 ) {
-    val state by viewModel.state.collectAsState()
+    val state by model.state.collectAsState()
 
     LaunchedEffect(state.loading) {
         if (!state.loading) {

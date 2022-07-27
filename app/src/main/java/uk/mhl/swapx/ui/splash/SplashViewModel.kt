@@ -21,7 +21,7 @@ class SplashViewModel @Inject constructor(
 
     // region State properties
 
-    private val _loading = MutableStateFlow<Boolean>(true)
+    private val _loading = MutableStateFlow(true)
 
     val state = _loading
         .map { loading ->

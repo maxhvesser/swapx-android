@@ -32,6 +32,14 @@ class ExchangeRepository @Inject constructor(
         exchangeDao.insertAll(rates)
     }
 
+    suspend fun getAvailableCurrencyCodes(): List<String> {
+        return exchangeDao.getAvailableCurrencyCodes()
+    }
+
+    suspend fun getExchangeForBase(currencyCode: String): List<ExchangeEntity> {
+        return exchangeDao.getRatesForBase(currencyCode)
+    }
+
     // endregion
 
 }
