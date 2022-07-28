@@ -16,6 +16,7 @@ import uk.mhl.swapx.R
 import uk.mhl.swapx.data.model.Currency
 import uk.mhl.swapx.ui.theme.SwapTheme
 import uk.mhl.swapx.ui.view.CurrencyCard
+import uk.mhl.swapx.ui.view.Key
 import uk.mhl.swapx.ui.view.NumberPad
 
 // region Entry
@@ -31,7 +32,8 @@ fun Exchange(
         toCurrency = state.toCurrency,
         fromAmount = state.fromAmount,
         toAmount = state.toAmount,
-        openCurrencySelection = openCurrencySelection
+        openCurrencySelection = openCurrencySelection,
+        onNumberPadKeyClicked = model::onNumberPadKeyClicked
     )
 }
 
@@ -45,7 +47,8 @@ private fun Content(
     toCurrency: Currency,
     fromAmount: Double,
     toAmount: Double,
-    openCurrencySelection: () -> Unit
+    openCurrencySelection: () -> Unit,
+    onNumberPadKeyClicked: (Key) -> Unit
 ) {
     Column {
         Spacer(Modifier.weight(1f))
@@ -64,7 +67,7 @@ private fun Content(
         )
         Spacer(Modifier.weight(1f))
         NumberPad(
-            onKeyClicked = { }
+            onKeyClicked = onNumberPadKeyClicked
         )
     }
 }
@@ -109,7 +112,8 @@ fun Preview_Content() {
             toCurrency = Currency.USD,
             fromAmount = 0.00,
             toAmount = 0.00,
-            openCurrencySelection = { }
+            openCurrencySelection = { },
+            onNumberPadKeyClicked = { }
         )
     }
 }

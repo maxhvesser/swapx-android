@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import uk.mhl.swapx.data.model.Currency
+import uk.mhl.swapx.ui.view.Key
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,6 +39,14 @@ class ExchangeViewModel @Inject constructor(
     // region Initialisation
 
     init {
+
+    }
+
+    // endregion
+
+    // region Amount updates
+
+    fun onNumberPadKeyClicked(key: Key) {
 
     }
 
