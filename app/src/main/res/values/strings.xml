@@ -1,3 +1,13 @@
 <resources>
+    <!-- region General -->
+
     <string name="app_name">SwapX</string>
+
+    <!-- endregion -->
+
+    <!-- region Currency selection -->
+
+    <string name="currency_selection_title">Currency</string>
+
+    <!-- endregion -->
 </resources>

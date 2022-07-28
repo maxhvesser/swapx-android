@@ -5,8 +5,10 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import uk.mhl.swapx.R
 import uk.mhl.swapx.data.model.Currency
 import uk.mhl.swapx.ui.theme.SwapTheme
 import uk.mhl.swapx.ui.view.BackArrowNavigation
@@ -34,7 +36,7 @@ private fun Content(
 ) {
     Column {
         SwapAppBar(
-            title = "Currency",
+            title = stringResource(R.string.currency_selection_title),
             navigationIcon = {
                 BackArrowNavigation(navigateUp)
             }
