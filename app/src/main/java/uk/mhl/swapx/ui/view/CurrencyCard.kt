@@ -36,6 +36,7 @@ private fun BaseCurrencyCard(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ){
         Text(
+            modifier = Modifier.fillMaxWidth(),
             text = amount,
             style = MaterialTheme.typography.displayMedium,
             color = MaterialTheme.colorScheme.secondary

@@ -45,22 +45,22 @@ fun Exchange(
 private fun Content(
     fromCurrency: Currency,
     toCurrency: Currency,
-    fromAmount: Double,
-    toAmount: Double,
+    fromAmount: String,
+    toAmount: String,
     openCurrencySelection: () -> Unit,
     onNumberPadKeyClicked: (Key) -> Unit
 ) {
     Column {
         Spacer(Modifier.weight(1f))
         CurrencyCard(
-            amount = String.format("%.2f", fromAmount),
+            amount = fromAmount,
             currency = fromCurrency.fullName,
             currencyCode = fromCurrency.name,
             onCardClicked = openCurrencySelection
         )
         SwapButton()
         CurrencyCard(
-            amount = String.format("%.2f", toAmount),
+            amount = toAmount,
             currency = toCurrency.fullName,
             currencyCode = toCurrency.name,
             onCardClicked = openCurrencySelection
@@ -110,8 +110,8 @@ fun Preview_Content() {
         Content(
             fromCurrency = Currency.EUR,
             toCurrency = Currency.USD,
-            fromAmount = 0.00,
-            toAmount = 0.00,
+            fromAmount = "0.00",
+            toAmount = "0.00",
             openCurrencySelection = { },
             onNumberPadKeyClicked = { }
         )

@@ -5,6 +5,6 @@ import uk.mhl.swapx.data.model.Currency
 data class ExchangeViewState(
     val fromCurrency: Currency = Currency.EUR,
     val toCurrency: Currency = Currency.USD,
-    val fromAmount: Double = 0.00,
-    val toAmount: Double = 0.00
+    val fromAmount: String = "0",
+    val toAmount: String = "0"
 )
