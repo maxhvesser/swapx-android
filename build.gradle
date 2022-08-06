@@ -10,6 +10,7 @@ buildscript {
         classpath Plugins.gradlePlugin
         classpath Plugins.hiltGradlePlugin
         classpath Plugins.kotlinGradlePlugin
+        classpath Plugins.protoBufGradlePlugin
     }
 }
 

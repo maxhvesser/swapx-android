@@ -6,6 +6,7 @@ object Versions {
     const val compose = "1.3.0-alpha01"
     const val composeCompiler = "1.2.0"
     const val coreKtx = "1.9.0-alpha01"
+    const val datastore = "1.0.0"
     const val espresso = "3.4.0"
     const val flipper = "0.154.0"
     const val gradlePlugin = "7.1.2"
@@ -17,6 +18,8 @@ object Versions {
     const val lifecycle = "2.6.0-alpha01"
     const val material3 = "1.0.0-alpha14"
     const val navigation = "2.5.0-alpha04"
+    const val protoBuf = "4.0.0-rc-2"
+    const val protoBufPlugin = "0.8.16"
     const val retrofit = "2.9.0"
     const val room = "2.4.2"
     const val soLoader = "0.10.4"
@@ -39,6 +42,11 @@ object Deps {
             const val tooling = "androidx.compose.ui:ui-tooling:${Versions.compose}"
             const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:${Versions.compose}"
         }
+    }
+
+    object Datastore {
+        const val datastore = "androidx.datastore:datastore-preferences:${Versions.datastore}"
+        const val protoBuf = "com.google.protobuf:protobuf-javalite:${Versions.protoBuf}"
     }
 
     object Flipper {
@@ -88,4 +96,5 @@ object Plugins {
     const val gradlePlugin = "com.android.tools.build:gradle:${Versions.gradlePlugin}"
     const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val protoBufGradlePlugin = "com.google.protobuf:protobuf-gradle-plugin:${Versions.protoBufPlugin}"
 }
