@@ -13,6 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uk.mhl.swapx.data.database.ExchangeDatabase
 import uk.mhl.swapx.data.database.dao.ExchangeDao
+import uk.mhl.swapx.data.datastore.ConversionManager
 import uk.mhl.swapx.data.network.ExchangeApi
 import uk.mhl.swapx.data.network.ExchangeService
 import javax.inject.Singleton
@@ -68,6 +69,18 @@ object AppModule {
     @Singleton
     @Provides
     fun provideExchangeDao(database: ExchangeDatabase): ExchangeDao = database.exchangeDao()
+
+    // endregion
+
+    // region Datastore
+
+    @Singleton
+    @Provides
+    fun provideConversionManager(
+        @ApplicationContext context: Context
+    ): ConversionManager {
+        return ConversionManager(context)
+    }
 
     // endregion
 
