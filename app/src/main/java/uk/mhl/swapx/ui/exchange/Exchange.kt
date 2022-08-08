@@ -14,6 +14,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import uk.mhl.swapx.R
 import uk.mhl.swapx.data.model.Currency
+import uk.mhl.swapx.data.model.fromAsCurrency
+import uk.mhl.swapx.data.model.toAsCurrency
 import uk.mhl.swapx.ui.theme.SwapTheme
 import uk.mhl.swapx.ui.view.CurrencyCard
 import uk.mhl.swapx.ui.view.Key
@@ -28,8 +30,8 @@ fun Exchange(
     val state by model.state.collectAsState()
 
     Content(
-        fromCurrency = state.fromCurrency,
-        toCurrency = state.toCurrency,
+        fromCurrency = state.conversion.fromAsCurrency(),
+        toCurrency = state.conversion.toAsCurrency(),
         fromAmount = state.fromAmount,
         toAmount = state.toAmount,
         openCurrencySelection = openCurrencySelection,
