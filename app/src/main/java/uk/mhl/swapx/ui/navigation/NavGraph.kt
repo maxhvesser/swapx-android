@@ -40,6 +40,7 @@ fun NavGraph() {
 
             composable(Destinations.CurrencySelection.Route) { backStack ->
                 CurrencySelection(
+                    model = hiltViewModel(backStack),
                     navigateUp = state.navigator.navigateUp
                 )
             }

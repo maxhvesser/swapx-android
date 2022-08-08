@@ -52,6 +52,14 @@ class ExchangeRepository @Inject constructor(
         return conversionManager.getConversion
     }
 
+    suspend fun updateFromCurrencyToStore(fromCurrencyCode: String) {
+        conversionManager.updateFromCurrencyCode(fromCurrencyCode)
+    }
+
+    suspend fun updateToCurrencyToStore(toCurrencyCode: String) {
+        conversionManager.updateToCurrencyCode(toCurrencyCode)
+    }
+
     // endregion
 
 }

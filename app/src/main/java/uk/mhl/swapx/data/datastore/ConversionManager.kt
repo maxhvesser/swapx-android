@@ -32,6 +32,22 @@ class ConversionManager @Inject constructor(
         }
     }
 
+    suspend fun updateFromCurrencyCode(code: String) {
+        context.conversionDataStore.updateData { current ->
+            current.toBuilder()
+                .setFromCurrencyCode(code)
+                .build()
+        }
+    }
+
+    suspend fun updateToCurrencyCode(code: String) {
+        context.conversionDataStore.updateData { current ->
+            current.toBuilder()
+                .setToCurrencyCode(code)
+                .build()
+        }
+    }
+
     // endregion
 
 }

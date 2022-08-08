@@ -19,10 +19,12 @@ import uk.mhl.swapx.ui.view.SwapAppBar
 
 @Composable
 fun CurrencySelection(
+    model: CurrencySelectionViewModel,
     navigateUp: () -> Unit
 ) {
     Content(
-        navigateUp = navigateUp
+        navigateUp = navigateUp,
+        onCurrencySelected = model::onCurrencySelected
     )
 }
 
@@ -32,7 +34,8 @@ fun CurrencySelection(
 
 @Composable
 private fun Content(
-    navigateUp: () -> Unit
+    navigateUp: () -> Unit,
+    onCurrencySelected: (Currency) -> Unit
 ) {
     Column {
         SwapAppBar(
@@ -41,12 +44,18 @@ private fun Content(
                 BackArrowNavigation(navigateUp)
             }
         )
-        CurrencyList()
+        CurrencyList(
+            navigateUp = navigateUp,
+            onCurrencySelected = onCurrencySelected
+        )
     }
 }
 
 @Composable
-private fun CurrencyList() {
+private fun CurrencyList(
+    navigateUp: () -> Unit,
+    onCurrencySelected: (Currency) -> Unit
+) {
     val currencies = Currency.values()
 
     LazyColumn(
@@ -56,7 +65,10 @@ private fun CurrencyList() {
             CurrencyRow(
                 currency = currency,
                 selected = currency == Currency.CAD,
-                onRowClicked = { }
+                onRowClicked = {
+                    onCurrencySelected(currency)
+                    navigateUp()
+                }
             )
         }
     }
@@ -71,7 +83,8 @@ private fun CurrencyList() {
 fun Preview_Content() {
     SwapTheme {
         Content(
-            navigateUp = { }
+            navigateUp = { },
+            onCurrencySelected = { }
         )
     }
 }
