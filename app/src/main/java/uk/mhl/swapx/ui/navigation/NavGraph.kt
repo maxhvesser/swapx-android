@@ -8,10 +8,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.google.accompanist.insets.ui.Scaffold
-import uk.mhl.swapx.ui.navigation.Destinations.CurrencySelection
 import uk.mhl.swapx.ui.currency_selection.CurrencySelection
 import uk.mhl.swapx.ui.exchange.Exchange
 import uk.mhl.swapx.ui.model.ConversionDirection
+import uk.mhl.swapx.ui.navigation.Destinations.CurrencySelection
 import uk.mhl.swapx.ui.rememberSwapAppState
 import uk.mhl.swapx.ui.splash.Splash
 

@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import uk.mhl.swapx.data.database.model.ExchangeEntity
-import uk.mhl.swapx.data.model.Currency
 
 @Dao
 interface ExchangeDao {
