@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import uk.mhl.swapx.data.repository.ExchangeRepository
 import uk.mhl.swapx.ui.view.Key
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import javax.inject.Inject
 
 @HiltViewModel
@@ -80,7 +82,9 @@ class ExchangeViewModel @Inject constructor(
             val rate = rates[toCurrencyCode] ?: 0.00
 
             val amountDouble = fromAsDouble * rate
-            toAmount.tryEmit(String.format("%.2f", amountDouble) )
+
+            val formatter = DecimalFormat("#,###,##0.##")
+            toAmount.tryEmit(formatter.format(amountDouble))
         }
     }
 
