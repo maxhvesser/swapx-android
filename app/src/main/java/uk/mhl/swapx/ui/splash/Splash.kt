@@ -43,46 +43,16 @@ fun Splash(
 
 @Composable
 private fun Content() {
-    LoadingIcon()
-}
-
-// endregion
-
-// region Loading
-
-@Composable
-private fun LoadingIcon() {
-    val infiniteTransition = rememberInfiniteTransition()
-    val angle by infiniteTransition.animateFloat(
-        initialValue = 0F,
-        targetValue = 360F,
-        animationSpec = infiniteRepeatable(
-            animation = tween(2000, easing = LinearEasing)
-        )
-    )
-
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Box {
-            Icon(
-                modifier = Modifier.
-                size(130.dp)
-                .graphicsLayer {
-                    rotationZ = angle
-                },
-                painter = painterResource(R.drawable.ic_currency_arrows),
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary
-            )
-            Icon(
-                modifier = Modifier.size(130.dp),
-                painter = painterResource(R.drawable.ic_currency_dollar),
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary
-            )
-        }
+        Icon(
+            modifier = Modifier.size(130.dp),
+            painter = painterResource(R.drawable.ic_currency),
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.primary
+        )
     }
 }
 

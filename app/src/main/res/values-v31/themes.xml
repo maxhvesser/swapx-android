@@ -10,7 +10,7 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">true</item>
 
         <!-- Splash properties -->
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_currency_splash</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/avd_currency</item>
         <item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
     </style>
 </resources>
