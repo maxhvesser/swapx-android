@@ -5,11 +5,21 @@ import android.view.View
 import android.view.ViewTreeObserver
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
+import uk.mhl.swapx.ui.main.MainViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    // region View model
+
+    private val viewModel: MainViewModel by viewModels()
+
+    // endregion
+
+    // region On Create
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,9 +34,7 @@ class MainActivity : ComponentActivity() {
         content.viewTreeObserver.addOnPreDrawListener(
             object : ViewTreeObserver.OnPreDrawListener {
                 override fun onPreDraw(): Boolean {
-                    val test: Boolean = false
-
-                    return if (test) {
+                    return if (!viewModel.loading.value) {
                         content.viewTreeObserver.removeOnPreDrawListener(this)
                         true
                     } else {
@@ -36,4 +44,7 @@ class MainActivity : ComponentActivity() {
             }
         )
     }
+
+    // endregion
+
 }

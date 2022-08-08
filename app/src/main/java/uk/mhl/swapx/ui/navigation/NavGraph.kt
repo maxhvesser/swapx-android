@@ -28,14 +28,14 @@ fun NavGraph() {
 
         NavHost(
             navController = state.navController,
-            startDestination = Destinations.Splash.Route
+            startDestination = Destinations.Exchange.Route
         ) {
-            composable(Destinations.Splash.Route) { backStack ->
-                Splash(
-                    model = hiltViewModel(backStack),
-                    openExchange = state.navigator.openExchange
-                )
-            }
+//            composable(Destinations.Splash.Route) { backStack ->
+//                Splash(
+//                    model = hiltViewModel(backStack),
+//                    openExchange = state.navigator.openExchange
+//                )
+//            }
 
             composable(Destinations.Exchange.Route) { backStack ->
                 Exchange(

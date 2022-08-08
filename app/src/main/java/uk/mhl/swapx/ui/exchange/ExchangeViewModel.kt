@@ -78,7 +78,13 @@ class ExchangeViewModel @Inject constructor(
             val fromCurrencyCode = state.value.conversion.fromCurrencyCode.ifEmpty { "EUR" }
             val toCurrencyCode = state.value.conversion.toCurrencyCode.ifEmpty { "USD" }
 
-            val rates = exchangeRepository.getExchangeForBase(fromCurrencyCode)[0].rates
+            val exchange = exchangeRepository.getExchangeForBase(fromCurrencyCode)
+            val rates = if (exchange.isNotEmpty()) {
+                exchange[0].rates
+            } else {
+                emptyMap()
+            }
+
             val rate = rates[toCurrencyCode] ?: 0.00
 
             val amountDouble = fromAsDouble * rate
