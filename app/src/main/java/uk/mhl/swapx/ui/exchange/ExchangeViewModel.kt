@@ -70,7 +70,7 @@ class ExchangeViewModel @Inject constructor(
 
     // region Conversion
 
-    private fun runConversion() {
+    fun runConversion() {
         viewModelScope.launch {
             val fromAsDouble = fromAmount.value.toDoubleOrNull() ?: 0.00
             val fromCurrencyCode = state.value.conversion.fromCurrencyCode.ifEmpty { "EUR" }

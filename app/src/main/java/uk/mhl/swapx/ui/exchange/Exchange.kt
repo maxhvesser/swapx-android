@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -29,6 +30,10 @@ fun Exchange(
     openCurrencySelection: (ConversionDirection) -> Unit
 ) {
     val state by model.state.collectAsState()
+
+    LaunchedEffect(state.conversion) {
+        model.runConversion()
+    }
 
     Content(
         fromCurrency = state.conversion.fromAsCurrency(),
