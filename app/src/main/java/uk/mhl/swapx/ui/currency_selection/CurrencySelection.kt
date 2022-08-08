@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -22,7 +24,10 @@ fun CurrencySelection(
     model: CurrencySelectionViewModel,
     navigateUp: () -> Unit
 ) {
+    val state by model.state.collectAsState()
+
     Content(
+        selectedCurrency = state.selectedCurrency,
         navigateUp = navigateUp,
         onCurrencySelected = model::onCurrencySelected
     )
@@ -34,6 +39,7 @@ fun CurrencySelection(
 
 @Composable
 private fun Content(
+    selectedCurrency: Currency,
     navigateUp: () -> Unit,
     onCurrencySelected: (Currency) -> Unit
 ) {
@@ -45,6 +51,7 @@ private fun Content(
             }
         )
         CurrencyList(
+            selectedCurrency = selectedCurrency,
             navigateUp = navigateUp,
             onCurrencySelected = onCurrencySelected
         )
@@ -53,6 +60,7 @@ private fun Content(
 
 @Composable
 private fun CurrencyList(
+    selectedCurrency: Currency,
     navigateUp: () -> Unit,
     onCurrencySelected: (Currency) -> Unit
 ) {
@@ -64,7 +72,7 @@ private fun CurrencyList(
         items(currencies) { currency ->
             CurrencyRow(
                 currency = currency,
-                selected = currency == Currency.CAD,
+                selected = currency == selectedCurrency,
                 onRowClicked = {
                     onCurrencySelected(currency)
                     navigateUp()
@@ -83,6 +91,7 @@ private fun CurrencyList(
 fun Preview_Content() {
     SwapTheme {
         Content(
+            selectedCurrency = Currency.CAD,
             navigateUp = { },
             onCurrencySelected = { }
         )

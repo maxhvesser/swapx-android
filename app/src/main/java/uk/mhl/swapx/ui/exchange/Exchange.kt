@@ -16,6 +16,7 @@ import uk.mhl.swapx.R
 import uk.mhl.swapx.data.model.Currency
 import uk.mhl.swapx.data.model.fromAsCurrency
 import uk.mhl.swapx.data.model.toAsCurrency
+import uk.mhl.swapx.ui.model.ConversionDirection
 import uk.mhl.swapx.ui.theme.SwapTheme
 import uk.mhl.swapx.ui.view.CurrencyCard
 import uk.mhl.swapx.ui.view.Key
@@ -25,7 +26,7 @@ import uk.mhl.swapx.ui.view.NumberPad
 @Composable
 fun Exchange(
     model: ExchangeViewModel,
-    openCurrencySelection: () -> Unit
+    openCurrencySelection: (ConversionDirection) -> Unit
 ) {
     val state by model.state.collectAsState()
 
@@ -49,7 +50,7 @@ private fun Content(
     toCurrency: Currency,
     fromAmount: String,
     toAmount: String,
-    openCurrencySelection: () -> Unit,
+    openCurrencySelection: (ConversionDirection) -> Unit,
     onNumberPadKeyClicked: (Key) -> Unit
 ) {
     Column {
@@ -58,14 +59,14 @@ private fun Content(
             amount = fromAmount,
             currency = fromCurrency.fullName,
             currencyCode = fromCurrency.name,
-            onCardClicked = openCurrencySelection
+            onCardClicked = { openCurrencySelection(ConversionDirection.From) }
         )
         SwapButton()
         CurrencyCard(
             amount = toAmount,
             currency = toCurrency.fullName,
             currencyCode = toCurrency.name,
-            onCardClicked = openCurrencySelection
+            onCardClicked = { openCurrencySelection(ConversionDirection.To) }
         )
         Spacer(Modifier.weight(1f))
         NumberPad(

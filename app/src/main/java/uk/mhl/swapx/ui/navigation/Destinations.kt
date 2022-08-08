@@ -11,5 +11,9 @@ object Destinations {
 
     object CurrencySelection {
         const val Route = "currencySelection"
+
+        object Key {
+            const val Direction = "conversionDirection"
+        }
     }
 }
