@@ -1,7 +1,10 @@
 package uk.mhl.swapx.data.repository
 
+import kotlinx.coroutines.flow.Flow
 import uk.mhl.swapx.data.database.dao.ExchangeDao
 import uk.mhl.swapx.data.database.model.ExchangeEntity
+import uk.mhl.swapx.data.datastore.ConversionManager
+import uk.mhl.swapx.data.model.Conversion
 import uk.mhl.swapx.data.model.toEntity
 import uk.mhl.swapx.data.network.ExchangeApi
 import uk.mhl.swapx.data.network.ExchangeService
@@ -9,7 +12,8 @@ import javax.inject.Inject
 
 class ExchangeRepository @Inject constructor(
     private val exchangeService: ExchangeService,
-    private val exchangeDao: ExchangeDao
+    private val exchangeDao: ExchangeDao,
+    private val conversionManager: ConversionManager
 ) {
 
     // region Network
@@ -38,6 +42,14 @@ class ExchangeRepository @Inject constructor(
 
     suspend fun getExchangeForBase(currencyCode: String): List<ExchangeEntity> {
         return exchangeDao.getRatesForBase(currencyCode)
+    }
+
+    // endregion
+
+    // region Datastore
+
+    fun observeStoredConversion(): Flow<Conversion> {
+        return conversionManager.getConversion
     }
 
     // endregion
