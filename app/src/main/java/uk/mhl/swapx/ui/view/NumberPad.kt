@@ -1,5 +1,6 @@
 package uk.mhl.swapx.ui.view
 
+import android.view.HapticFeedbackConstants
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -16,6 +17,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -51,13 +55,18 @@ private fun BaseNumberKey(
     number: String,
     onKeyClicked: () -> Unit
 ) {
+    val haptic = LocalHapticFeedback.current
+
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(50))
             .background(MaterialTheme.colorScheme.surface)
             .height(64.dp)
             .fillMaxWidth()
-            .clickable { onKeyClicked() },
+            .clickable {
+                haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                onKeyClicked()
+            },
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -73,13 +82,18 @@ private fun BaseIconKey(
     iconPainter: Painter,
     onKeyClicked: () -> Unit
 ) {
+    val haptic = LocalHapticFeedback.current
+
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(50))
             .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.5f))
             .height(64.dp)
             .fillMaxWidth()
-            .clickable { onKeyClicked() },
+            .clickable {
+                haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                onKeyClicked()
+            },
         contentAlignment = Alignment.Center
     ) {
         Icon(
