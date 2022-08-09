@@ -34,7 +34,13 @@
 
     <target android:name="outerRotationGroup">
         <aapt:attr name="android:animation">
-            <set>
+            <set android:ordering="sequentially">
+                <objectAnimator
+                    android:duration="2000"
+                    android:interpolator="@android:anim/linear_interpolator"
+                    android:propertyName="rotation"
+                    android:valueFrom="0"
+                    android:valueTo="0" />
                 <objectAnimator
                     android:duration="1000"
                     android:interpolator="@android:anim/linear_interpolator"
