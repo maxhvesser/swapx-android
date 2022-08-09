@@ -1,10 +1,6 @@
 package uk.mhl.swapx.ui.navigation
 
 object Destinations {
-    object Splash {
-        const val Route = "splash"
-    }
-
     object Exchange {
         const val Route = "exchange"
     }

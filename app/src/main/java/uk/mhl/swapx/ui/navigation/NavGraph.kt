@@ -13,7 +13,6 @@ import uk.mhl.swapx.ui.exchange.Exchange
 import uk.mhl.swapx.ui.model.ConversionDirection
 import uk.mhl.swapx.ui.navigation.Destinations.CurrencySelection
 import uk.mhl.swapx.ui.rememberSwapAppState
-import uk.mhl.swapx.ui.splash.Splash
 
 private const val CurrencySelectionRoute: String = "${CurrencySelection.Route}/{${CurrencySelection.Key.Direction}}"
 
@@ -30,13 +29,6 @@ fun NavGraph() {
             navController = state.navController,
             startDestination = Destinations.Exchange.Route
         ) {
-//            composable(Destinations.Splash.Route) { backStack ->
-//                Splash(
-//                    model = hiltViewModel(backStack),
-//                    openExchange = state.navigator.openExchange
-//                )
-//            }
-
             composable(Destinations.Exchange.Route) { backStack ->
                 Exchange(
                     model = hiltViewModel(backStack),
