@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 import uk.mhl.swapx.data.repository.ExchangeRepository
 import uk.mhl.swapx.ui.view.Key
 import java.text.DecimalFormat
-import java.text.NumberFormat
 import javax.inject.Inject
 
 @HiltViewModel
