@@ -1,4 +1,4 @@
-package uk.mhl.swapx.ui
+package uk.mhl.swapx.ui.main
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
-import uk.mhl.swapx.ui.main.MainViewModel
+import uk.mhl.swapx.ui.SwapApp
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
