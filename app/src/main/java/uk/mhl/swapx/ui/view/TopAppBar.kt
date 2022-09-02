@@ -8,13 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import uk.mhl.swapx.ui.theme.SwapTheme
 
 // region Colors
 
 @Composable
 private fun standardAppBarColors() = TopAppBarDefaults.smallTopAppBarColors(
-    containerColor = MaterialTheme.colorScheme.background,
+    containerColor = MaterialTheme.colorScheme.surface,
     navigationIconContentColor = MaterialTheme.colorScheme.onBackground,
     titleContentColor = MaterialTheme.colorScheme.onBackground,
     actionIconContentColor = MaterialTheme.colorScheme.onBackground
@@ -28,17 +29,22 @@ private fun standardAppBarColors() = TopAppBarDefaults.smallTopAppBarColors(
 fun SwapAppBar(
     title: String,
     navigationIcon: @Composable () -> Unit = { },
-    actions: @Composable RowScope.() -> Unit = { }
+    actions: @Composable RowScope.() -> Unit = { },
+    shouldLift: Boolean = false
 ) {
     val barPadding = WindowInsets.statusBars.asPaddingValues()
 
-    SmallTopAppBar(
-        modifier = Modifier.padding(barPadding),
-        title = { Text(title) },
-        colors = standardAppBarColors(),
-        navigationIcon = navigationIcon,
-        actions = actions
-    )
+    Surface(
+        tonalElevation = if (shouldLift) 2.dp else 0.dp
+    ) {
+        SmallTopAppBar(
+            modifier = Modifier.padding(barPadding),
+            title = { Text(title) },
+            colors = standardAppBarColors(),
+            navigationIcon = navigationIcon,
+            actions = actions
+        )
+    }
 }
 
 // endregion
