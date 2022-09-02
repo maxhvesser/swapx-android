@@ -1,18 +1,20 @@
 package uk.mhl.swapx.ui.exchange
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import uk.mhl.swapx.R
 import uk.mhl.swapx.data.model.Currency
 import uk.mhl.swapx.data.model.fromAsCurrency
@@ -58,21 +60,50 @@ private fun Content(
     openCurrencySelection: (ConversionDirection) -> Unit,
     onNumberPadKeyClicked: (Key) -> Unit
 ) {
+    var sizeToOffset by remember { mutableStateOf(0f) }
+    var swapped by remember { mutableStateOf(false) }
+    val offset by animateFloatAsState(if (swapped) sizeToOffset else 0f)
+
+    val density = LocalDensity.current
+
     Column {
         Spacer(Modifier.weight(1f))
-        CurrencyCard(
-            amount = fromAmount,
-            currency = fromCurrency.fullName,
-            currencyCode = fromCurrency.name,
-            onCardClicked = { openCurrencySelection(ConversionDirection.From) }
+        Box(
+            modifier = Modifier
+                .onGloballyPositioned {
+                    with (density) {
+                        sizeToOffset = it.size.height + 56.dp.toPx()
+                    }
+                }
+                .graphicsLayer(
+                    translationY = offset
+                )
+        ) {
+            CurrencyCard(
+                amount = fromAmount,
+                currency = fromCurrency.fullName,
+                currencyCode = fromCurrency.name,
+                onCardClicked = { openCurrencySelection(ConversionDirection.From) }
+            )
+        }
+        SwapButton(
+            onClick = {
+                swapped = !swapped
+            }
         )
-        SwapButton()
-        CurrencyCard(
-            amount = toAmount,
-            currency = toCurrency.fullName,
-            currencyCode = toCurrency.name,
-            onCardClicked = { openCurrencySelection(ConversionDirection.To) }
-        )
+        Box(
+            modifier = Modifier
+                .graphicsLayer(
+                    translationY = -offset
+                )
+        ) {
+            CurrencyCard(
+                amount = toAmount,
+                currency = toCurrency.fullName,
+                currencyCode = toCurrency.name,
+                onCardClicked = { openCurrencySelection(ConversionDirection.To) }
+            )
+        }
         Spacer(Modifier.weight(1f))
         NumberPad(
             onKeyClicked = onNumberPadKeyClicked
@@ -81,7 +112,9 @@ private fun Content(
 }
 
 @Composable
-private fun SwapButton() {
+private fun SwapButton(
+    onClick: () -> Unit
+) {
     Box(
         contentAlignment = Alignment.Center
     ) {
@@ -102,7 +135,7 @@ private fun SwapButton() {
                     contentDescription = null
                 )
             },
-            onClick = { }
+            onClick = onClick
         )
     }
 }

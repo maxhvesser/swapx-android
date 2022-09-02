@@ -31,7 +31,6 @@ private fun BaseCurrencyCard(
             .padding(16.dp)
             .clip(RoundedCornerShape(16.dp))
             .clickable { onCardClicked() }
-            .background(MaterialTheme.colorScheme.surface)
             .padding(16.dp)
             .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(8.dp)
