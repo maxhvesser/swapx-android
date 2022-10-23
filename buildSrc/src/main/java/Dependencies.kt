@@ -15,7 +15,7 @@ object Versions {
     const val junit = "4.13.2"
     const val junitExt = "1.1.4-beta01"
     const val kotlin = "1.7.20"
-    const val lifecycle = "2.6.0-alpha01"
+    const val lifecycle = "2.6.0-alpha02"
     const val material3 = "1.0.0-rc01"
     const val navigation = "2.5.0-alpha04"
     const val protoBuf = "4.0.0-rc-2"
