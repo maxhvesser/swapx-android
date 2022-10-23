@@ -5,7 +5,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,17 +31,14 @@ fun SwapAppBar(
     actions: @Composable RowScope.() -> Unit = { },
     shouldLift: Boolean = false
 ) {
-    val barPadding = WindowInsets.statusBars.asPaddingValues()
-
     Surface(
         tonalElevation = if (shouldLift) 2.dp else 0.dp
     ) {
         TopAppBar(
-            modifier = Modifier.padding(barPadding),
             title = { Text(title) },
             colors = standardAppBarColors(),
             navigationIcon = navigationIcon,
-            actions = actions
+            actions = actions,
         )
     }
 }
