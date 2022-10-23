@@ -19,6 +19,23 @@ subprojects {
         google()
         mavenCentral()
     }
+
+    plugins.whenPluginAdded {
+        if (it.class.simpleName == "KotlinAndroidPluginWrapper") {
+            android.kotlinOptions.freeCompilerArgs += [
+                    "-Xopt-in=kotlin.RequiresOptIn",
+                    "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                    "-Xopt-in=androidx.compose.ui.ExperimentalComposeUiApi",
+                    "-Xopt-in=androidx.compose.material.ExperimentalMaterialApi",
+                    "-Xopt-in=com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi",
+                    "-Xopt-in=androidx.compose.foundation.ExperimentalFoundationApi",
+                    "-Xopt-in=androidx.compose.material.ExperimentalMaterialApi",
+                    "-Xopt-in=androidx.compose.animation.ExperimentalAnimationApi",
+                    "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+                    "-Xopt-in=com.google.accompanist.pager.ExperimentalPagerApi"
+            ]
+        }
+    }
 }
 
 task clean(type: Delete) {

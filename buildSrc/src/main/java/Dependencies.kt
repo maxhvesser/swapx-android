@@ -16,7 +16,7 @@ object Versions {
     const val junitExt = "1.1.3"
     const val kotlin = "1.7.20"
     const val lifecycle = "2.6.0-alpha01"
-    const val material3 = "1.0.0-alpha14"
+    const val material3 = "1.0.0-rc01"
     const val navigation = "2.5.0-alpha04"
     const val protoBuf = "4.0.0-rc-2"
     const val protoBufPlugin = "0.8.16"

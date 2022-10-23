@@ -37,7 +37,7 @@ fun SwapAppBar(
     Surface(
         tonalElevation = if (shouldLift) 2.dp else 0.dp
     ) {
-        SmallTopAppBar(
+        TopAppBar(
             modifier = Modifier.padding(barPadding),
             title = { Text(title) },
             colors = standardAppBarColors(),
