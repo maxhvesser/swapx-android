@@ -1,7 +1,7 @@
 <p align="center">
     <img
         src="https://raw.githubusercontent.com/MaxHvesser/swapx-android/master/images/swapx_logo.png"
-        height="100"/>
+        height="850"/>
     <br/>
 </p>
 
