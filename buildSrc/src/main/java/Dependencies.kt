@@ -21,7 +21,7 @@ object Versions {
     const val protoBuf = "4.0.0-rc-2"
     const val protoBufPlugin = "0.8.16"
     const val retrofit = "2.9.0"
-    const val room = "2.4.2"
+    const val room = "2.5.0-beta01"
     const val soLoader = "0.10.4"
 }
 
