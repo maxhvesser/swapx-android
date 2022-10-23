@@ -13,7 +13,7 @@ object Versions {
     const val hilt = "2.44"
     const val hiltNavigation = "1.0.0"
     const val junit = "4.13.2"
-    const val junitExt = "1.1.3"
+    const val junitExt = "1.1.4-beta01"
     const val kotlin = "1.7.20"
     const val lifecycle = "2.6.0-alpha01"
     const val material3 = "1.0.0-rc01"
