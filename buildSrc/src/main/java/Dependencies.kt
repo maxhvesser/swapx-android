@@ -5,7 +5,7 @@ object Versions {
     const val activity = "1.6.0-alpha05"
     const val compose = "1.3.0-alpha01"
     const val composeCompiler = "1.3.2"
-    const val coreKtx = "1.9.0-alpha01"
+    const val coreKtx = "1.9.0"
     const val datastore = "1.0.0"
     const val espresso = "3.4.0"
     const val flipper = "0.154.0"
