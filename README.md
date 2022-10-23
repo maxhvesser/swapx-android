@@ -1,7 +1,7 @@
 <p align="center">
     <img
         src="https://raw.githubusercontent.com/MaxHvesser/swapx-android/master/images/swapx_logo.png"
-        height="850"/>
+        height="100"/>
     <br/>
 </p>
 
@@ -11,5 +11,5 @@ _SwapX is a simple currency converter app for Android. More or less, what you se
 
 <img
     src="https://raw.githubusercontent.com/MaxHvesser/swapx-android/master/images/screenshot_array.png"
-    width="500"
+    width="850"
 />
