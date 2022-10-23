@@ -10,7 +10,7 @@ object Versions {
     const val espresso = "3.4.0"
     const val flipper = "0.171.1"
     const val gradlePlugin = "7.3.1"
-    const val hilt = "2.42"
+    const val hilt = "2.44"
     const val hiltNavigation = "1.0.0"
     const val junit = "4.13.2"
     const val junitExt = "1.1.3"
