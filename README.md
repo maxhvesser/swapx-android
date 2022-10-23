@@ -24,7 +24,6 @@ The project makes use of the following features;
 
 **Screenshots**
 
-<br/>
 <img
     src="https://raw.githubusercontent.com/MaxHvesser/swapx-android/master/images/swapx_screenshot_showcase.png"
     width="850" />
