@@ -1,7 +1,7 @@
 package uk.mhl.swapx.data.database
 
 import androidx.room.TypeConverter
-import java.util.*
+import java.util.TreeMap
 
 class Converters {
 
