@@ -8,7 +8,7 @@ object Versions {
     const val coreKtx = "1.9.0"
     const val datastore = "1.1.0-dev01"
     const val espresso = "3.5.0-beta01"
-    const val flipper = "0.171.1"
+    const val flipper = "0.174.0"
     const val gradlePlugin = "7.3.1"
     const val hilt = "2.44"
     const val hiltNavigation = "1.0.0"
