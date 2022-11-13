@@ -1,7 +1,7 @@
 package uk.swapx.build
 
 object Versions {
-    const val accompanist = "0.26.5-rc"
+    const val accompanist = "0.27.0"
     const val activity = "1.7.0-alpha02"
     const val compose = "1.4.0-alpha02"
     const val composeCompiler = "1.4.0-alpha02"
